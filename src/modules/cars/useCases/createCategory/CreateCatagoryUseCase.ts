@@ -1,5 +1,5 @@
-import {Category} from '../models/Category';
-import { CategoriesRepository } from '../repositories/CategoriesRepository';
+import {Category} from '../../models/Category';
+import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
 
 interface IRequest {
     name: string;
@@ -12,9 +12,9 @@ interface IRequest {
  * [x] - Acessar o repositório
  */
 
-class CreateCategoryService {
+class CreateCategoryUseCase {
 
-    constructor( private categoriesRepository: CategoriesRepository) {
+    constructor( private categoriesRepository: ICategoriesRepository) {
     }
 
     
@@ -32,4 +32,4 @@ class CreateCategoryService {
     }
 }
 
-export {CreateCategoryService}
+export {CreateCategoryUseCase}
