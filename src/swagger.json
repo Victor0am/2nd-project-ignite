@@ -1,0 +1,87 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RentalX Documentation",
+        "description": "RentalX API documentation",
+        "version": "1.0.0",
+        "contact":{
+            "email": "victoramarques@hotmail.com"
+        }
+    },
+    "paths":{
+        "/categories":{
+            "post":{
+                "summary": "Create a new category",
+                "description": "Create a new category",
+                "tags": ["Category"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Category 1"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Category 1 description"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Category sample",
+                                    "description": "Category description sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Category created"
+                    },
+                    "500":{
+                        "description": "Category already exists"
+                    }
+                    
+                }
+            },
+            "get":{
+                "summary": "List all categories",
+                "description": "List all categories",
+                "tags": ["Category"],
+                "responses": {
+                    "200": {
+                        "description": "Categories retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
